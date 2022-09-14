@@ -27,7 +27,7 @@ export const userRegister = (reqObj) => async dispatch => {
     dispatch({ type: 'LOADING', payload: true })
 
     try {
-        const response = await axios.post(`${url}/api/users/register`, reqObj)
+        const response = await axios.post(`${url}/api/users/register`, reqObj, {withCredentials: true})
         message.success('Registration successfull')
         setTimeout(() => {
             window.location.href = '/login'
